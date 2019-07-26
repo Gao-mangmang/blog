@@ -1,0 +1,21 @@
+{{include './header.html'}}
+        <div class="content-right publish-box">
+            <form action="/publish" method="post" class="publish">
+                    <label class="title-box">标题：
+                            <input type="text" name="title" required>
+                    </label>
+                    <label class="note">标签:&emsp;<input type="text" name="note">
+                    <input type="text" name="note">
+                    <input type="text" name="note">
+                    </label>
+                    <label class="pub-content">内容：
+                    <textarea name="publish" required></textarea>
+                    </label>
+                    <div> {{error}}</div>
+                    <button type="submit">发布</button>
+                   
+            </form>
+        </div>
+    </div>
+</div>
+{{include './footer.html'}}

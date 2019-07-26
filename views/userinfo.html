@@ -1,0 +1,67 @@
+<!DOCTYPE html <html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="author" content="">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<style>
+
+</style>
+
+<body>
+    <nav>
+        <div class="nav-box container">
+
+            <div class="nav-left">
+                {{if user}}
+                <div class="nav-header">
+                    <img src="{{user.headerurl}}" alt="">
+                    <span><a href="/edit/userinfo" class="name">{{user.username}}&nbsp; </a>博客</span>
+
+                    <a href="/logout">&emsp; 登出</a>
+                </div>
+                {{else}}
+                <div>
+                    <a href="/login">登录</a>&emsp;
+                    <a href="/regist">注册</a>
+                </div>
+                {{/if}}
+            </div>
+            <ul class="nav-right">
+                <li>
+                    <a href="/">首页</a>
+                </li>
+                <li>
+                    <a href="/archive">存档</a>
+                </li>
+                <li>
+                    <a href="/publish">发布</a>
+                </li>
+                <li><a href="/about">关于</a></li>
+                <li><a href="/note">标签</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container edit-img">
+        <form action="/edit/userinfo" method="post">
+            <div class="edit-header">
+                <img src="{{user.headerurl}}" alt="">
+                <a href="/edit/header/{{user.username}}">编辑头像</a>
+            </div>
+            <label>姓名：{{user.username}}</label>
+            <br>
+            <label>年龄：<input type="text" name="age" value="{{user.age}}"></label><br>
+            <button type="submit">修改</button>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{{include './header.html'}}
+
+<div class="content-right message-box">
+    {{each pubs pub}}
+    <p class="article-title">{{pub.title}}</p>
+    <p class="article-info">
+        <span>作者</span>
+        <span><a href="/author/{{pub.author._id}}">{{pub.author.username}}</a>&emsp;&emsp;</span>
+        
+        <span> {{pub.time.day}}&emsp;&emsp;</span>
+        <span>{{pub.count+1}}人已阅读&emsp;&emsp;</span>
+        <span>{{pub.reply.length}}条回复</span>
+    </p>
+    <div class="article-content">
+        {{pub.pub}}
+    </div>
+    {{if user}}
+    {{if user.username==pub.author.username}}
+    <div class="editor-box">
+            <a href="/editor?_id={{pub._id}}">编辑</a>&emsp;
+            <a href="/delete?_id={{pub._id}}" class="del">删除</a>
+    </div>
+    {{/if}}
+    {{/if}}
+  
+    <div class="reply-box">
+        <p class="article-reply">文章评论</p>
+        <ul class="reply-menu">
+            {{each pub.reply reply}}
+            <li class="reply-list">
+                <div>
+                    <div class="reply-info">
+                        <div class="rep-name">
+                            <a href="javascript:;">{{reply.username}}</a>
+                            </div>
+                        <div class="rep-time">{{reply.time.day}}</div>
+                    </div>
+                    <div>{{reply.reply}}</div>
+                </div>
+            </li>
+            {{/each}}
+
+        </ul>
+        {{if user}}
+        <form action="/reply" method="post" class="reply-content">
+            <input type="text" name="_id" value="{{pub._id}}" hidden>
+            <p>来说两句吧...</p>
+            <textarea name="reply" required></textarea><br>
+            <button type="submit">提交</button>
+        </form>
+        {{/if}}
+    </div>
+    
+    {{/each}}
+</div>
+
+</div>
+</div>
+
+{{include './footer.html'}}

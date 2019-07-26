@@ -1,0 +1,22 @@
+{{include './header.html'}}
+        <div class="content-right publish-box">
+            <form action="/editor" method="post" class="publish">
+               
+                    <input type="text" name="_id" value="{{pubs._id}}" hidden>
+                    <label class="title-box">标题：
+                            <input type="text" name="title" required value="{{pubs.title}}">
+                    </label>
+                    <label class="note">标签:&emsp;<input type="text" name="note" value="{{pubs.note[0]}}">
+                    <input type="text" name="note" value="{{pubs.note[1]}}">
+                    <input type="text" name="note" value="{{pubs.note[2]}}">
+                    </label>
+                    <label class="pub-content">内容：
+                    <textarea name="publish">{{pubs.pub}}</textarea>
+                    </label>
+                    <button type="submit">编辑</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+{{include './footer.html'}}

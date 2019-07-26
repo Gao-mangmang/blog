@@ -1,0 +1,41 @@
+{{include './header.html'}}
+<div class="content-right archive-box">
+
+    <div>
+        {{each pubs pub}}
+        {{if lastYear!=pub.time.year}}
+        <h1>{{lastYear=pub.time.year}}</h1>
+        {{/if}}
+        <div>
+            <span>{{pub.time.day}}&nbsp;</span>
+            <span class="archive-title">
+                <input type="text" name="_id" value="{{pub._id}}" hidden>
+                <a class="archive-title" href="/message/{{pub._id}}">{{pub.title}}</a>
+            </span>
+        </div>
+        {{/each}}
+        {{if pubs.length>0}}
+        <div class="page-box">
+            {{if page!=1}}
+            <a href="?page={{page-1}}">上一页</a>
+            {{/if}}
+            
+            <span>第{{page}}/{{allPages}}页</span>
+            {{if page!== allPages}}
+            <a href="?page={{page+1}}">下一页</a>
+            {{/if}}
+        </div>
+        {{/if}}
+       
+        
+
+
+    </div>
+
+
+
+</div>
+</div>
+</div>
+
+{{include './footer.html'}}

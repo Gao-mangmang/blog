@@ -1,0 +1,56 @@
+<!DOCTYPE html <html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="author" content="">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<style>
+
+</style>
+
+<body>
+    <nav>
+        <div class="nav-box container">
+            <div class="nav-left">
+                <a href="/login">登录</a>&emsp;
+                <a href="/regist">注册</a>
+            </div>
+            <ul class="nav-right">
+                <li><a href="/">首页</a></li>
+                <li><a href="javascript:;">存档</a></li>
+                <li><a href="javascript:;">发布</a></li>
+                <li><a href="javascript:;">关于</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container content-box">
+        <div>
+            <form action="/regist" method="post" class="regist">
+                <label>姓&emsp;&emsp;名：<input type="text" name="username"></label>
+                <p class="err">&emsp;{{error}}</p>
+                <label>密&emsp;&emsp;码：<input type="password" name="password">
+                </label>
+                <p class="err"></p>
+                <label>确认密码：<input type="password" name="repassword">
+                </label>
+                <p class="err">&emsp;&emsp;&emsp;&emsp;&emsp;{{error1}}</p>
+                <label>电子邮箱：<input type="text" name="email" required>
+                </label>
+                <label class="self">
+                    个人信息：<textarea name="introduction" class="introduction"></textarea>
+                </label>
+
+                <button type="submit">注册</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="/js/blogs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{{include './header.html'}}
+<div class="content-right">
+    <ul class="home-box">
+        {{each pubs pub}}
+        <li>
+            <input type="text" name="_id" value="{{pub._id}}" hidden>
+            <a class="pub-title" href="/message/{{pub._id}}">{{pub.title}}</a>
+            <div class="pub-info">
+                <span  class="pub-author">作者：<a href="/author/{{pub.author._id}}">{{pub.author.username}}</a></span>
+                <span>&emsp;| {{pub.time.seconds}}&emsp;</span>
+                <span>
+                    标签：
+                    {{each pub.note note}}
+                    <a href="/querys/{{note}}">{{note}}</a>&nbsp;
+                    {{/each}}
+                </span>
+            </div>
+            <p><a href="/message/{{pub._id}}">{{pub.pub}}</a></p>
+        </li>
+        {{/each}}
+    </ul>
+    {{if pubs.length>0}}
+    <div class="page-box">
+        {{if page!=1}}
+        <a href="/author/{{user_id}}?page={{page-1}}">上一页</a>
+        {{/if}}
+        
+        <span>第{{page}}/{{allPages}}页</span>
+        {{if page!== allPages}}
+        <a href="/author/{{user_id}}?page={{page+1}}">下一页</a>
+        {{/if}}
+    </div>
+    {{/if}}
+</div>
+</div>
+</div>
+
+{{include './footer.html'}}
